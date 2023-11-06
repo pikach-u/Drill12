@@ -34,6 +34,8 @@ class Zombie:
         self.frame = random.randint(0, 9)
         self.dir = random.choice([-1,1])
         self.lifepoint = 2
+        self.width = 200
+        self.height = 200
 
 
     def update(self):
@@ -49,9 +51,9 @@ class Zombie:
 
     def draw(self):
         if self.dir < 0:
-            Zombie.images['Walk'][int(self.frame)].composite_draw(0, 'h', self.x, self.y, 200, 200)
+            Zombie.images['Walk'][int(self.frame)].composite_draw(0, 'h', self.x, self.y, self.width, self.height)
         else:
-            Zombie.images['Walk'][int(self.frame)].draw(self.x, self.y, 200, 200)
+            Zombie.images['Walk'][int(self.frame)].draw(self.x, self.y, self.width, self.height)
         draw_rectangle(*self.get_bb())
 
 
@@ -67,8 +69,10 @@ class Zombie:
         if group == 'ball:zombie':
             self.lifepoint -= 1
             if self.lifepoint == 1:
-                self.x = 100
-                self.y = 100
+                self.height = 100
+                self.width = 100
+                self.y -= 50
+                self.x -= 50
                 print('collision')
             elif self.lifepoint == 0:
                 game_world.remove_object(self)

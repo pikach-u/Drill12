@@ -51,7 +51,6 @@ def remove_object(o):
             layer.remove(o)    # 시각적 월드에서만 지운다. 아직 충돌에서 지운건 아님
             remove_collision_object(o)  # 충돌 그룹에서 삭제 완료
             del o # 객체 자체를 완전히 메모리에서 해제 (free)
-            print('del object')
             return
     raise ValueError('Cannot delete non existing object')
 
