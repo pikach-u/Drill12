@@ -67,6 +67,8 @@ class Zombie:
         if group == 'ball:zombie':
             self.lifepoint -= 1
             if self.lifepoint == 1:
+                self.x = 100
+                self.y = 100
                 print('collision')
             elif self.lifepoint == 0:
                 game_world.remove_object(self)

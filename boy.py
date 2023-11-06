@@ -195,7 +195,7 @@ class Boy:
         if self.ball_count > 0:
             self.ball_count -= 1
             ball = Ball(self.x, self.y, self.face_dir*10)
-            game_world.add_object(ball,2)
+            game_world.add_object(ball)
 
     def update(self):
         self.state_machine.update()
